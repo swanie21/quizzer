@@ -8,7 +8,9 @@ export default class Quizzes extends Component {
     super();
     this.state = {
       score: 0,
-      selectedAnswers: [null, null, null, null]
+      selectedAnswers: [null, null, null, null],
+      question: '',
+      answer: ''
     };
   }
 
@@ -26,6 +28,20 @@ export default class Quizzes extends Component {
       .catch((error) => {
         console.log(error);
     });
+  }
+
+  postQuestion() {
+    axios.post('/quizzes/1/questions', {
+      title: this.state.question,
+      answers: [{title: this.state.answer}]
+    })
+      .then((response) => {
+        console.log(response);
+    })
+      .catch((error) => {
+        console.log(error);
+    });
+    this.fetchQuizzes();
   }
 
   postScore(sumOfScores) {
@@ -54,6 +70,16 @@ export default class Quizzes extends Component {
     this.postScore(sumOfScores);
   }
 
+  handleQuestionInput(e) {
+   const userQuestion = e.target.value;
+   this.setState({ question: userQuestion });
+  }
+
+   handleAnswerInput(e) {
+    const userAnswer = e.target.value;
+    this.setState({ answer: userAnswer });
+  }
+
   render() {
     return (
       this.state.quizzes ?
@@ -70,7 +96,22 @@ export default class Quizzes extends Component {
                 setScores={this.setScores.bind(this)}
               /> )}
           </section>
-          <button onClick={() => this.addScores()}>Submit Scores</button>
+          <form>
+            <input
+              type="text"
+              value={this.state.question}
+              onChange={this.handleQuestionInput.bind(this)}
+              placeholder="Add question"
+            />
+            <input
+              type="text"
+              value={this.state.answer}
+              onChange={this.handleAnswerInput.bind(this)}
+              placeholder="Add answer"
+            />
+            <button onClick={() => this.postQuestion()}>Submit Question</button>
+            <button onClick={() => this.addScores()}>Submit Scores</button>
+          </form>
         </div>
       : <h1>No Quizzes</h1>
     );
