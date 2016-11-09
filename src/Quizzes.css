@@ -15,7 +15,7 @@
   padding: 15px;
 }
 
-ul {
-  list-style-type: square;
+.quizOptions {
+  padding: 10px;
   margin-left: 25px;
 }

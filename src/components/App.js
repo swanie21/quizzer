@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import QuizData from './QuizData';
+import Quizzes from './Quizzes';
 import '../App.css';
 
 export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <QuizData />
+        <Quizzes />
       </div>
     );
   }
