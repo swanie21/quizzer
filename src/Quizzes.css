@@ -1,0 +1,21 @@
+.pageTitle {
+  font-size: 40px;
+  font-weight: lighter;
+}
+
+.questionContainer {
+  background-color: #ddf4fb;
+  width: 60%;
+  padding-bottom: 10px;
+}
+
+.questionTitle {
+  background-color: #08627d;
+  color: #fff;
+  padding: 15px;
+}
+
+.quizOptions {
+  padding: 10px;
+  margin-left: 25px;
+}
