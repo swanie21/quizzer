@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Answers = (props) => {
+const Answer = (props) => {
   const { title, id } = props;
 
   return (
@@ -13,4 +13,4 @@ const Answers = (props) => {
   )
 }
 
-export default Answers;
+export default Answer;

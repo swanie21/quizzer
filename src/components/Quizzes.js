@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../Quizzes.css';
-import Questions from './Questions';
+import Question from './Question';
 
 export default class Quizzes extends Component {
   constructor() {
@@ -29,7 +29,7 @@ export default class Quizzes extends Component {
           <h1 className="pageTitle">{this.state.quizzes[0].title}</h1>
           <section>
             {this.state.quizzes[0].questions.map(question =>
-              <Questions
+              <Question
                 className="questionContainer"
                 key={question.id}
                 id={question.id}

@@ -1,14 +1,14 @@
 import React from 'react';
-import Answers from './Answers';
+import Answer from './Answer';
 
-const Questions = (props) => {
+const Question = (props) => {
   const {title, id, answers } = props;
 
 return (
     <section key={id} className="questionContainer">
       <h3 className="questionTitle">{title}</h3>
         {answers.map((answer, index) =>
-        <Answers
+        <Answer
           key={index}
           id={id}
           title={answer.title}
@@ -18,4 +18,4 @@ return (
 }
 
 
-export default Questions;
+export default Question;
