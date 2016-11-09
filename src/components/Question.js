@@ -2,7 +2,7 @@ import React from 'react';
 import Answer from './Answer';
 
 const Question = (props) => {
-  const {title, id, answers } = props;
+  const {title, id, answers, setScores } = props;
 
 return (
     <section key={id} className="questionContainer">
@@ -12,6 +12,8 @@ return (
           key={index}
           id={id}
           title={answer.title}
+          setScores={setScores}
+          score={answer.score}
         />)}
     </section>
   );

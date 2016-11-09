@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Answer = (props) => {
-  const { title, id } = props;
+  const { title, id, setScores, score } = props;
 
   return (
-    <article className="quizOptions">
+    <article onClick={() => setScores(id, score)} className="quizOptions">
       <label>
         <input type="radio" name={id} />
         {title}
